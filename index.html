@@ -1,0 +1,826 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Academic portfolio of Amal Abdulrahman, researcher in Human-AI Interaction.">
+
+  <title>Amal Abdulrahman | Research</title>
+
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+  <style>
+    :root {
+      --ink: #222;
+      --muted: #60666b;
+      --line: #e4e5e6;
+      --accent: #285c74;
+      --card: #f8f9fa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: #143749;
+    }
+
+    /* Main two-column layout */
+
+    .layout {
+      display: grid;
+      grid-template-columns: 25% minmax(0, 1fr);
+      gap: 40px;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 75px 40px 90px;
+      align-items: start;
+    }
+
+    /* Left profile column */
+
+    .profile {
+      position: sticky;
+      top: 45px;
+      align-self: start;
+      min-width: 0;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(28px, 3vw, 36px);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.035em;
+      margin: 0 0 14px;
+    }
+
+    .subtitle {
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: 500;
+      margin: 0 0 20px;
+      line-height: 1.5;
+    }
+
+    .intro {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.75;
+      margin: 0 0 24px;
+    }
+
+    .profile h2 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 28px 0 10px;
+    }
+
+    .about-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+      font-size: 13px;
+    }
+
+    /* Right research column */
+
+    .content {
+      min-width: 0;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      margin: 0 0 24px;
+    }
+
+    /* Project grid */
+
+    .research {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      min-width: 0;
+      background: var(--card);
+      border: 1px solid #eff0f1;
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .project-card img,
+    .project-placeholder {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 8px;
+    }
+
+    .project-placeholder {
+      display: grid;
+      place-items: center;
+      color: #969ca2;
+      font-size: 13px;
+      border: 1px dashed #d9dfe3;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .project-card h3 {
+      font-size: 16px;
+      line-height: 1.4;
+      margin: 14px 0 7px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 0 0 14px;
+    }
+
+    /* Keyword tags */
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .tags span {
+      background: #e8eef1;
+      color: #385668;
+      padding: 4px 9px;
+      font-size: 11px;
+      line-height: 1.4;
+      border-radius: 999px;
+    }
+
+
+    /* ==============================
+    ACADEMIC PROFILE SIDEBAR
+    ============================== */
+
+    .sidebar {
+      position: sticky;
+      top: 30px;
+      align-self: start;
+      max-height: calc(100vh - 60px);
+      overflow-y: auto;
+      padding-right: 18px;
+      scrollbar-width: thin;
+      scrollbar-color: #dce3e8 transparent;
+    }
+
+    .sidebar h1 {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.8px;
+      margin: 0 0 10px;
+      color: #20252b;
+    }
+
+    .professional-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #286b85;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .location {
+      font-size: 12px;
+      color: #80858b;
+      margin-bottom: 24px;
+    }
+
+    /* Profile sections */
+
+    .profile-section {
+      border-top: 1px solid #e4e8eb;
+      padding: 17px 0;
+    }
+
+    .profile-section h2 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #252b33;
+      margin: 0 0 12px;
+    }
+
+    .profile-section p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #626a73;
+      margin: 0;
+    }
+
+    /* Research interests and expertise */
+
+    .profile-tags,
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .profile-tags span {
+      background: #edf3f6;
+      color: #285c74;
+      padding: 5px 9px;
+      border-radius: 5px;
+      font-size: 11px;
+    }
+
+    .skill-tags span {
+      background: #f5f6f7;
+      color: #46515b;
+      border: 1px solid #e3e6e9;
+      padding: 5px 9px;
+      border-radius: 5px;
+      font-size: 11px;
+    }
+
+    /* Academic experience */
+
+    .institution {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .institution:last-child {
+      margin-bottom: 0;
+    }
+
+    .institution img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .institution strong,
+    .degree strong {
+      display: block;
+      font-size: 13px;
+      color: #252b33;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .institution p {
+      font-size: 12px;
+      margin: 3px 0;
+      line-height: 1.5;
+    }
+
+    .institution small {
+      font-size: 11px;
+      color: #858b92;
+    }
+
+    /* Education */
+
+    .degree {
+      padding-left: 12px;
+      border-left: 2px solid #d7e4eb;
+      margin-bottom: 14px;
+    }
+
+    .degree:last-child {
+      margin-bottom: 0;
+    }
+
+    .degree p {
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    /* Academic profile links */
+
+    .academic-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .academic-links a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      color: #286b85;
+      text-decoration: none;
+      font-size: 10px;
+      transition: color 0.2s ease;
+    }
+
+    .academic-links i {
+      font-size: 20px;
+    }
+
+    .academic-links a:hover {
+      color: #112e40;
+    }
+
+    /* Mobile layout */
+
+    @media (max-width: 750px) {
+      .sidebar {
+        position: static;
+        max-height: none;
+        overflow: visible;
+        padding-right: 0;
+        margin-bottom: 30px;
+      }
+    }
+
+
+    /* Footer */
+
+    footer {
+      margin-top: 55px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Tablet */
+
+    @media (max-width: 950px) {
+      .layout {
+        grid-template-columns: 30% minmax(0, 1fr);
+        gap: 25px;
+        padding: 45px 25px;
+      }
+
+      .research {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Mobile */
+
+    @media (max-width: 650px) {
+      .layout {
+        display: block;
+        padding: 35px 22px 60px;
+      }
+
+      .profile {
+        position: static;
+        margin-bottom: 45px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .research {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card img,
+      .project-placeholder {
+        height: 190px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="layout">
+
+    <!-- LEFT COLUMN: PROFILE -->
+
+    
+    <aside class="sidebar">
+
+      <h1>Amal Abdulrahman, PhD</h1>
+
+      <p class="professional-title">
+        AI & Human–Computer Interaction Researcher
+      </p>
+
+      <p class="location">Melbourne, Australia</p>
+
+      <!-- ABOUT -->
+
+      <section class="profile-section">
+        <h2>About me</h2>
+
+        <p>
+          My research focuses on the design, development and
+          empirical evaluation of intelligent systems that support
+          human reasoning, decision-making, learning and behaviour
+          change. My work spans artificial intelligence and
+          human–computer interaction, with applications in
+          healthcare, education and cybersecurity.
+        </p>
+      </section>
+
+      <!-- RESEARCH INTERESTS -->
+
+      <section class="profile-section">
+        <h2>Research Interests</h2>
+
+        <div class="profile-tags">
+          <span>Explainable AI</span>
+          <span>Generative AI</span>
+          <span>Intelligent Agents</span>
+          <span>Human–AI Interaction</span>
+          <span>Reinforcement Learning</span>
+          <span>Affective Computing</span>
+          <span>Behaviour Change</span>
+        </div>
+      </section>
+
+      <!-- ACADEMIC EXPERIENCE -->
+
+      <section class="profile-section">
+        <h2>Academic Experience</h2>
+
+        <div class="institution">
+          <img src="images/MQ.jpg" alt="Macquarie University">
+          <div>
+            <strong>Macquarie University</strong>
+            <p>Researcher</p>
+            <small>Australia</small>
+          </div>
+        </div>
+
+        <div class="institution">
+          <img src="images/TU.jpg" alt="TU Delft">
+          <div>
+            <strong>Delft University of Technology</strong>
+            <p>Postdoctoral Researcher</p>
+            <small>The Netherlands</small>
+          </div>
+        </div>
+
+        <div class="institution">
+          <img src="images/USM.jpg" alt="Universiti Sains Malaysia">
+          <div>
+            <strong>Universiti Sains Malaysia</strong>
+            <p>Teaching Assistant</p>
+            <small>Malaysia</small>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- EDUCATION -->
+
+      <section class="profile-section">
+        <h2>Education</h2>
+
+        <div class="degree">
+          <strong>PhD in Computing</strong>
+          <p>Macquarie University, Australia</p>
+        </div>
+
+        <div class="degree">
+          <strong>MSc in Affective Computing</strong>
+          <p>Universiti Sains Malaysia, Malaysia</p>
+        </div>
+
+        <div class="degree">
+          <strong>BSc in Computer Science</strong>
+          <p>Hodeidah University, Yemen</p>
+        </div>
+
+      </section>
+
+      <!-- TECHNICAL EXPERTISE -->
+
+      <section class="profile-section">
+        <h2>Technical Expertise</h2>
+
+        <div class="skill-tags">
+          <span>Python</span>
+          <span>R</span>
+          <span>Unity</span>
+          <span>OpenAI API</span>
+          <span>SQL</span>
+          <span>Machine Learning</span>
+          <span>Deep Learning</span>
+          <span>Knowledge Engineering</span>
+          <span>Knowledge Graphs</span>
+          <span>Statistical Analysis</span>
+          <span>Experimental Design</span>
+        </div>
+      </section>
+
+      <!-- ACADEMIC PROFILES -->
+
+      <section class="profile-section">
+        <h2>Academic Profiles</h2>
+
+        <div class="academic-links">
+          <a href="YOUR_GOOGLE_SCHOLAR_URL" target="_blank" rel="noopener">
+            <i class="fa-solid fa-graduation-cap"></i>
+            Google Scholar
+          </a>
+
+          <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin"></i>
+            LinkedIn
+          </a>
+
+          <a href="mailto:YOUR_EMAIL">
+            <i class="fa-regular fa-envelope"></i>
+            Email
+          </a>
+        </div>
+
+      </section>
+
+</aside>
+
+
+    <!-- RIGHT COLUMN: PROJECTS -->
+
+    <div class="content">
+
+      <h2 class="section-title">Selected Projects</h2>
+
+      <div class="research">
+
+        <!-- PROJECT 1 -->
+
+        <article class="project-card">
+
+          <img
+            src="images/3d_facial_expression_graphical_abstract.png"
+            alt="3D Facial Expression Recognition graphical abstract"
+            loading="lazy"
+          >
+
+          <h3>3D Facial Expression Recognition</h3>
+
+          <p>
+            Automatic recognition of facial expressions
+            from 3D facial data using feature extraction
+            and machine-learning classification.
+          </p>
+
+          <div class="tags">
+            <span>3D Face Analysis</span>
+            <span>Emotion Recognition</span>
+            <span>SURF</span>
+            <span>Machine Learning</span>
+          </div>
+
+        </article>
+
+
+      <!-- PROJECT: Artificial Social Agent Questionnaire (ASAQ) -->
+
+      <article class="project-card">
+
+        <img
+          src="images/ASAQ.png"
+          alt="Artificial Social Agent Questionnaire (ASAQ)"
+          loading="lazy"
+        >
+
+        <h3>Artificial Social Agent Questionnaire (ASAQ)</h3>
+
+        <p>
+          This project developed and evaluated a multidimensional
+          questionnaire for measuring users' perceptions of artificial
+          social agents. The research addresses the lack of standardised
+          evaluation measures, which limits comparability across agents
+          and reproducibility of findings. The questionnaire provides
+          a structured approach to assessing the social and relational
+          qualities of human-agent interaction, supporting consistent
+          evaluation and comparison of artificial social agents.
+        </p>
+
+        <div class="tags">
+          <span>Human–AI Interaction</span>
+          <span>Artificial Social Agents</span>
+          <span>Psychometrics</span>
+          <span>Questionnaire Development</span>
+          <span>User Experience Evaluation</span>
+          <span>Human–Computer Interaction</span>
+        </div>
+
+      </article>
+
+
+        <!-- PROJECT 2 -->
+
+        <article class="project-card">
+
+          <img
+            src="images/SAM.png"
+            alt="Sleep Adherence Mentor (SAM) graphical abstract"
+            loading="lazy"
+          >
+
+          <h3>Sleep Adherence Mentor (SAM)</h3>
+
+          <p>
+            An explainable virtual conversational agent designed to support children with sleep disorders and their families while awaiting specialist care. Integrated with the eADVICE platform, SAM uses personalised conversations to understand users’ beliefs, goals, and barriers to following recommended sleep treatments, providing tailored explanations to encourage treatment adherence.
+          </p>
+
+          <div class="tags">
+            <span>Explainable AI</span>
+            <span>Virtual Agents</span>
+            <span>HCI</span>
+            <span>Behaviour Change</span>
+            <span>Digital Health</span>
+          </div>
+
+        </article>
+
+        <!-- PROJECT 3 -->
+
+        <article class="project-card">
+
+          <img
+            src="images/Sarah.png"
+            alt="BDI-explainable agent"
+            loading="lazy"
+          >
+
+          <h3>BDI Explainable Agent for Health Behaviour Change</h3>
+
+          <p>
+            This project developed and evaluated an explainable Belief–Desire–Intention (BDI) conversational agent for health behaviour change. The agent models users’ beliefs, desires/goals, and intentions to generate personalised explanations and advice, aiming to improve understanding, trust, working alliance, and intention to change behaviour.
+          </p>
+
+          <div class="tags">
+            <span>BDI Agent</span>
+            <span>Explainable Agents</span>
+            <span>Health Behaviour Change</span>
+            <span>Personalised Explanations</span>
+          </div>
+
+        </article>
+
+        <!-- PROJECT 4 -->
+
+        <article class="project-card">
+
+          <img
+            src="images/RL_for_PWD.png"
+            alt="RL for PWD"
+            loading="lazy"
+          >
+
+          <h3>Reinforcement Learning for Social Support in Diabetes</h3>
+
+          <p>
+            This project developed a reinforcement learning-based digital social mediator
+            to help people with Type 2 diabetes seek support from their social networks.
+            The algorithm learns communication strategies by balancing users' preferences
+            with expert recommendations, considering health disclosure, emotional
+            expression, directness, and advice provision. The research investigates how
+            these strategies influence user satisfaction and long-term support-seeking
+            behaviour.
+          </p>
+
+          <div class="tags">
+            <span>Reinforcement Learning</span>
+            <span>Digital Health</span>
+            <span>Diabetes Support</span>
+            <span>Social Support</span>
+            <span>Conversational Agents</span>
+          </div>
+
+        </article>
+
+
+        <!-- PROJECT5: Cybersecurity Ethics Training -->
+
+        <article class="project-card">
+
+          <img
+            src="images/RDR.png"
+            alt="Ripple Down Rules for Cybersecurity Ethics Training"
+            loading="lazy"
+          >
+
+          <h3>Ripple Down Rules for Cybersecurity Ethics Training</h3>
+
+          <p>
+            This project investigated the use of Ripple Down Rules (RDR)
+            to improve ethical reasoning in cybersecurity contexts.
+            The approach combines case-based learning with rule-based
+            reasoning to help users connect their decisions and
+            justifications to underlying ethical principles.
+            A randomised controlled study involving 353 participants
+            demonstrated significant improvements in ethical principle
+            identification compared with conventional training.
+          </p>
+
+          <div class="tags">
+            <span>Ripple Down Rules</span>
+            <span>Explainable AI</span>
+            <span>Rule-Based Reasoning</span>
+            <span>Cybersecurity Ethics</span>
+            <span>Human–AI Interaction</span>
+          </div>
+
+        </article>
+
+
+        <!-- PROJECT6: Knowledge-Base-Guided LLMs for Education -->
+
+        <article class="project-card">
+
+          <img
+            src="images/kg.png"
+            alt="Knowledge-Base-Guided LLMs for Higher Education"
+            loading="lazy"
+          >
+
+          <h3>Knowledge-Base-Guided LLMs for Higher Education</h3>
+
+          <p>
+            This project developed and evaluated a knowledge-graph-guided
+            conversational agent that integrates curriculum-aligned knowledge
+            with large language models and Socratic questioning to support
+            structured learning. A randomised controlled trial involving
+            235 undergraduate students demonstrated significantly greater
+            engagement, improved conceptual accuracy, and stronger adherence
+            to course content compared with a general-purpose LLM chatbot.
+            Conceptual understanding and task enjoyment remained comparable
+            between conditions.
+          </p>
+
+          <div class="tags">
+            <span>Generative AI</span>
+            <span>Large Language Models</span>
+            <span>Knowledge Graphs</span>
+            <span>Socratic Learning</span>
+            <span>AI in Education</span>
+            <span>Human–AI Interaction</span>
+          </div>
+
+        </article>
+
+
+
+      </div>
+
+      <footer>
+        © 2026 Amal Abdulrahman
+      </footer>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
